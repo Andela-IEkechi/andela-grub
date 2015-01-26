@@ -6,7 +6,9 @@
       <% @breakfast_orders.each do |breakfast_order| %>
           <p class='list-group'>
             <strong><%= breakfast_order.user.name %> |</strong>
-            <%= breakfast_order.menu_content.food_item %>
+            <% if breakfast_order.menu_content%>
+                <%= breakfast_order.menu_content.food_item %>
+            <% end %>
           </p>
       <% end %>
     </div>
@@ -15,7 +17,9 @@
       <% @lunch_orders.each do |lunch_order| %>
           <p class='list-group'>
             <strong><%= lunch_order.user.name %> |</strong>
-            <%= lunch_order.menu_content.food_item %>
+            <% if lunch_order.menu_content %>
+                <%= lunch_order.menu_content.food_item %>
+            <% end%>
           </p>
       <% end %>
     </div>
@@ -24,7 +28,9 @@
       <% @dinner_orders.each do |dinner_order| %>
           <p class='list-group'>
             <strong><%= dinner_order.user.name %> |</strong>
-            <%= dinner_order.menu_content.food_item %>
+            <% if dinner_order.menu_content %>
+                <%= dinner_order.menu_content.food_item %>
+            <% end %>
           </p>
       <% end %>
     </div>
