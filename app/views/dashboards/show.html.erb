@@ -1,0 +1,33 @@
+<section class="container-fluid">
+  <div class="">
+    <h3 class="page-header">All Orders Today</h3>
+    <div class=''>
+      <h4 class="page-header">Breakfast Orders</h4>
+      <% @breakfast_orders.each do |breakfast_order| %>
+          <p class='list-group'>
+            <strong><%= breakfast_order.user.name %> |</strong>
+            <%= breakfast_order.menu_content.food_item %>
+          </p>
+      <% end %>
+    </div>
+    <div class=''>
+      <h4 class="page-header">Lunch Orders</h4>
+      <% @lunch_orders.each do |lunch_order| %>
+          <p class='list-group'>
+            <strong><%= lunch_order.user.name %> |</strong>
+            <%= lunch_order.menu_content.food_item %>
+          </p>
+      <% end %>
+    </div>
+    <div class=''>
+      <h4 class="page-header">Dinner Orders</h4>
+      <% @dinner_orders.each do |dinner_order| %>
+          <p class='list-group'>
+            <strong><%= dinner_order.user.name %> |</strong>
+            <%= dinner_order.menu_content.food_item %>
+          </p>
+      <% end %>
+    </div>
+  </div>
+
+</section>

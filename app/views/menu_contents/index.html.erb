@@ -1,0 +1,22 @@
+<section class="container-fluid">
+  <div class="my-orders col-md-8">
+    <h3 class="">Available today </h3>
+    <hr>
+    <div class='list-group'>
+      <% @menu_contents.each do |menu_content| %>
+          <p class='list-group'>
+            <%= menu_content.food.item %>
+            <% if current_user.try(:admin?) %>
+                <%= link_to 'Edit', edit_menu_content_path(menu_content) %>
+                <%= link_to 'Destroy', menu_content, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </p>
+      <% end %>
+    </div>
+    <% if current_user.try(:admin?) %>
+        <div>
+          <%= link_to 'New Menu content', new_menu_content_path %>
+        </div>
+    <% end %>
+  </div>
+</section>

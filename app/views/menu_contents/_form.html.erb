@@ -1,0 +1,33 @@
+<%= form_for(@menu_content) do |f| %>
+  <% if @menu_content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu_content.errors.count, "error") %> prohibited this menu_content from being saved:</h2>
+
+      <ul>
+      <% @menu_content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :day_id %><br>
+    <%= f.collection_select :day_id, Day.order(:id), :id, :day,
+                            :include_blank => true
+    %>
+  </div>
+  <div class="field">
+    <%= f.label :food_id %><br>
+    <%= f.collection_select :food_id, Food.order(:item), :id, :item,
+                            :include_blank => true
+    %>
+  </div>
+  <div class="field">
+    <%= f.label :occasion %><br>
+    <%= f.select :occasion, options_for_select(MenuContent::OCCASION) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

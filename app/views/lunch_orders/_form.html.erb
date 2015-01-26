@@ -1,0 +1,25 @@
+<%= form_for(@lunch_order) do |f| %>
+  <% if @lunch_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lunch_order.errors.count, "error") %> prohibited this lunch order from being saved:</h2>
+
+      <ul>
+      <% @lunch_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= hidden_field(:lunch_order, :user_id, value: current_user.id)%>
+    </div>
+    <div class="field">
+      <%= f.label :menu_content_id %><br>
+      <%= f.collection_select :menu_content_id, MenuContent.where(["occasion = '%s' and day_id = '%s'", "Breakfast", Time.now.wday]).order(:id), :id, :food_item,
+                              :include_blank => true
+      %>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

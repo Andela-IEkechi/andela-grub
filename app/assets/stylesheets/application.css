@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #aba98c;
+    background: url("bg.jpg") no-repeat;
+}
+nav {
+    background-color: whitesmoke;
+    color: #333;
+    border-radius: 0.3em;
+    box-shadow:  0 1px 1px #333;
+    margin: 3em 0 3em 3em;
+    padding: 0.5em 2em;
+    height: 5em;
+}
+.current-user {
+    background-color: whitesmoke;
+    color: #333;
+    border-left: solid 0.5em yellow;
+    border-radius: 0.3em;
+    box-shadow:  0 1px 1px #333;
+    margin: 3em 3em 1em 0;
+    padding: 0.5em 2em;
+    height: 80vh;
+    overflow: hidden;
+}
+.content-container {
+    background-color: whitesmoke;
+    color: #333;
+    border-top: solid 2em #776b5e;
+    border-radius: 0.3em;
+    box-shadow:  0 1px 1px #333;
+    margin: 10em 1em 1em 3em;
+    padding: 0.5em 2em;
+    height: 65%;
+    width: 66%;
+    position: absolute;
+    opacity: 0.9;
+    overflow: auto;
+}
+.avatar {
+    border-radius: 50%;
+    height: 4em;
+    width: 4em;
+    border: double 4px silver;
+}
+.date {
+    position: absolute;
+    bottom: 0;
+    color:  #333;
+    padding: 1em;
+    margin: 0 -0.6em;
+    font-weight: 700;
+    font-size: x-large;
+}
+.button {
+    background-color: #776b5e;
+    padding: 0.5em;
+    font-size: x-large;
+    margin: 0.5em 0;
+    border-radius: 0.1em;
+    box-shadow:  0 1px 1px black;
+    min-width: 200px;
+}
+.current-user .button {
+    color: whitesmoke!important;
+    text-decoration: none!important;
+}
+.admin-tasks {
+    position: fixed;
+    bottom: 0;
+    right: 5em;
+    z-index: 1000;
+}

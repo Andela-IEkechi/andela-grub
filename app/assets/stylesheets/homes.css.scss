@@ -1,0 +1,19 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-image: url("home-bg.jpg")!important;
+}
+.grub-home {
+  position: absolute;
+  color: #333;
+  text-shadow:  0 1px 1px gold;
+  margin: 0.4em;
+  font-size: 15em;
+}
+.welcome {
+  color: coral;
+  margin-top: 0.2em;
+  font-size: 2em;
+}

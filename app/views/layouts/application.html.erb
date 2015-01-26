@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grub</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="col-md-8">
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag("Logo.png", width: '250', height: '55', alt: 'Andela Logo', class: "logo") %>
+    </div>
+    <% if user_signed_in? %>
+     <div class="col-md-6"><%= image_tag (current_user.image), class:"avatar pull-right" %></div>
+    <% end %>
+  </div>
+</nav>
+<div class="current-user col-md-3 pull-right text-center">
+  <% if user_signed_in? %>
+      <div class="row">
+          <strong class=><%= current_user.name %></strong>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+      </div>
+      <hr>
+      <%= link_to "My Breakfast Orders", breakfast_orders_path, class: "button" %>
+      <hr>
+      <%= link_to "My Lunch Orders", lunch_orders_path, class: "button" %>
+      <hr>
+      <%= link_to "My Dinner Orders", dinner_orders_path, class: "button" %>
+      <hr>
+      <%= link_to "Available Today", menu_contents_path, class: "button" %>
+      <hr>
+  <% else %>
+      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-default" %>
+      <%= link_to "Admin", new_user_session_path, class: "btn btn-default" %>
+<% end %>
+  <p class="date"><%= Time.now.to_date %></p>
+</div>
+<% if current_user.try(:admin?) %>
+<div class="admin-tasks">
+  <%= link_to "All foods", foods_path, class: "btn btn-default" %>
+  <%= link_to "Days", days_path, class: "btn btn-default" %>
+  <%= link_to "All Orders", dashboard_path, class: "btn btn-default" %>
+</div>
+<% end %>
+<div class="content-container">
+  <%= yield %>
+</div>
+
+</body>
+</html>
