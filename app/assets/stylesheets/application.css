@@ -17,7 +17,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #aba98c;
-    background: url("bg.jpg") no-repeat;
+    background-image: url("bg.jpg");
 }
 nav {
     background-color: whitesmoke;
