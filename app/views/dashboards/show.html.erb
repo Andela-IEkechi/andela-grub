@@ -6,7 +6,7 @@
       <% @breakfast_orders.each do |breakfast_order| %>
           <p class='list-group'>
             <strong><%= breakfast_order.user.name %> |</strong>
-            <% if breakfast_order.menu_content%>
+            <% if breakfast_order.menu_content %>
                 <%= breakfast_order.menu_content.food_item %>
             <% end %>
           </p>

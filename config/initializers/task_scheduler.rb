@@ -1,21 +1,17 @@
-# require 'rufus-scheduler'
-#
-# scheduler = Rufus::Scheduler.new
-#
-# # Send the digest every day at noon
-# scheduler.cron("0 12 * * *") do
-#   UserMailer.user_reminder.deliver()
-# end
-#
-# scheduler = Rufus::Scheduler.new
-#
-# # Send the digest every day at noon
-# scheduler.cron("0 12 * * *") do
-#   UserMailer.admin_reminder
-# end
-#
-# scheduler = Rufus::Scheduler.new
-#
-# scheduler.every("1m") do
-#   UserMailer.user_reminder.deliver()
-# end
+require 'rufus-scheduler'
+
+scheduler = Rufus::Scheduler.new
+
+# Send the reminder to users every day at 5pm
+scheduler.cron("0 17 * * *") do
+ User.where(admin: false).each do |user|
+    UserMailer.user_reminder(user).deliver
+ end
+end
+
+scheduler = Rufus::Scheduler.new
+
+# Send the reminder to admin every day at 4pm
+scheduler.cron("0 16 * * *") do
+  UserMailer.admin_reminder.deliver
+end
