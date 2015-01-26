@@ -46,3 +46,4 @@ gem 'omniauth-openid'
 # Use rspec for testing
 gem 'rspec'
 gem 'rspec-rails'
+gem 'rails_12factor'
