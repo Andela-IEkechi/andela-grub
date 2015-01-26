@@ -15,7 +15,7 @@
     </div>
     <div class="field">
       <%= f.label :menu_content_id %><br>
-      <%= f.collection_select :menu_content_id, MenuContent.where(["occasion = '%s' and day_id = '%s'", "Dinner", Time.now.wday]).order(:id), :id, :food_item,
+      <%= f.collection_select :menu_content_id, MenuContent.where({ day_id: Time.now.wday, occasion: "Dinner" }).order(:id), :id, :food_item,
                               :include_blank => true
       %>
     </div>
