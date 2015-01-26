@@ -22,7 +22,7 @@
 <div class="current-user col-md-3 pull-right text-center">
   <% if user_signed_in? %>
       <div class="row">
-          <strong class=><%= current_user.name %></strong>
+          <strong><%= current_user.name %></strong>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
       </div>
       <hr>
@@ -40,13 +40,14 @@
 <% end %>
   <p class="date"><%= Time.now.to_date %></p>
 </div>
-<% if current_user.try(:admin?) %>
 <div class="admin-tasks">
-  <%= link_to "All foods", foods_path, class: "btn btn-default" %>
-  <%= link_to "Days", days_path, class: "btn btn-default" %>
-  <%= link_to "All Orders", dashboard_path, class: "btn btn-default" %>
+  <% if current_user.try(:admin?) %>
+    <%= link_to "All foods", foods_path, class: "btn btn-default" %>
+    <%= link_to "Days", days_path, class: "btn btn-default" %>
+    <%= link_to "All Orders", dashboard_path, class: "btn btn-default" %>
+  <% end %>
+  <%= link_to "Settings", edit_user_registration_path, class: "btn btn-default" %>
 </div>
-<% end %>
 <div class="content-container">
   <%= yield %>
 </div>
