@@ -87,3 +87,7 @@ nav {
     right: 5em;
     z-index: 1000;
 }
+.logo:hover {
+    background-color: whitesmoke;
+    text-decoration: none;
+}

@@ -12,7 +12,7 @@
 <nav class="col-md-8">
   <div class="row">
     <div class="col-md-6">
-      <%= image_tag("Logo.png", width: '250', height: '55', alt: 'Andela Logo', class: "logo") %>
+      <%= link_to(image_tag("Logo.png", alt: "Andela Logo", width: '250', height: '55', class: "logo", title: "Andela"),root_path ) %>
     </div>
     <% if user_signed_in? %>
      <div class="col-md-6"><%= image_tag (current_user.image), class:"avatar pull-right" %></div>
